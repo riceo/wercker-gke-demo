@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Create a virtualenv if it doesn't already exist.
+if [ ! -d ../env ]; then
+	echo "Creating new virtualenv..."
+    virtualenv ../env
+else
+	echo "Found an exisitng virtualenv..."
+fi
+
+# Activate the virtualenv
+echo "Activating virtualenv..."
+source ../env/bin/activate
+
+# Attempt to install the required pip dependencies, then touch a file once done.
+# If the file already exists only re-run the installation if the requirements file
+# is newer than the touched file.
+if [ ! -f ../env/installed -o ../requirements.pip -nt ../env/installed ]; then
+
+    pip install -r ../requirements.pip
+
+    if [ $? -ne 0 ]; then
+        echo "Unable to install requirements. "
+        exit 1
+    fi
+
+    touch ../env/installed
+else
+	echo "pip dependencies already installed..."
+fi

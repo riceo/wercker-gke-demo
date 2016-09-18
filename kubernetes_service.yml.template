@@ -1,0 +1,18 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: get-ip
+  labels:
+    app: get-ip
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: get-ip
+    commit: ${WERCKER_GIT_COMMIT}

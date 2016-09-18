@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cd $(dirname "$0")
+
+. ./activate_env
+
+# Start our application...
+
+nosetests -v ../get_ip/tests.py

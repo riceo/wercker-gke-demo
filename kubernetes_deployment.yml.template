@@ -1,0 +1,28 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: get-ip
+  labels:
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: get-ip
+  template:
+    metadata:
+      labels:
+        app: get-ip
+        commit: ${WERCKER_GIT_COMMIT}
+    spec:
+      containers:
+      - name: get-ip-server
+        image: eu.gcr.io/wercker-tutorials/get-ip:${WERCKER_GIT_COMMIT}
+        ports:
+        - name: get-ip-server
+          containerPort: 8080
+          protocol: TCP
