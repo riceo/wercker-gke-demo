@@ -16,4 +16,4 @@ spec:
   selector:
     app: get-ip
     commit: ${WERCKER_GIT_COMMIT}
-type: LoadBalancer
+  type: LoadBalancer
