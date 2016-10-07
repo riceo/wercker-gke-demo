@@ -16,7 +16,7 @@ build:
         cmd: 0.0.0.0 8080
         working-dir: $WERCKER_ROOT
         tag: $WERCKER_GIT_COMMIT
-        ports: "80"
+        ports: "8080"
         username: _json_key
         password: $GCP_KEY_JSON
         repository: eu.gcr.io/wercker-tutorials/get-ip
