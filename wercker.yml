@@ -19,8 +19,8 @@ build:
         ports: "8080"
         username: _json_key
         password: $GCP_KEY_JSON
-        repository: eu.gcr.io/wercker-tutorials/get-ip
-        registry: https://eu.gcr.io
+        repository: $GCR_IMAGE
+        registry: $GCR_HOST
 
 deploy-to-kubernetes:
     box: python:2.7
