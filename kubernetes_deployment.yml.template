@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: get-ip-server
-        image: eu.gcr.io/wercker-tutorials/get-ip:${WERCKER_GIT_COMMIT}
+        image: ${GCR_TAG}:${WERCKER_GIT_COMMIT}
         ports:
         - name: get-ip-server
           containerPort: 8080

@@ -19,7 +19,7 @@ build:
         ports: "8080"
         username: _json_key
         password: $GCP_KEY_JSON
-        repository: $GCR_IMAGE
+        repository: $GCR_TAG
         registry: $GCR_HOST
 
 deploy-to-kubernetes:
