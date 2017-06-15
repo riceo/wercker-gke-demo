@@ -21,6 +21,7 @@ build:
         password: $GCP_KEY_JSON
         repository: $GCR_TAG
         registry: $GCR_HOST
+        debug: true
 
 deploy-to-kubernetes:
     box: python:2.7
